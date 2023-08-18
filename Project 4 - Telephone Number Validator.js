@@ -20,19 +20,8 @@ Return true if the string is a valid US phone number; otherwise return false.
 
 // SOLUTION (so far)
 function telephoneCheck(str) {
-  let digits = ['1','2','3','4','5','6','7','8','9','0'];
-  let noOfDigits = 0;
-
-  for(let i=0; i<str.length; i++){
-    if(digits.includes(str[i])){
-      noOfDigits++;
-    }
-  }
-  console.log(noOfDigits);
-
-  if(noOfDigits > 11 || noOfDigits < 10){
-    return false
-  }
+  const regex = /^(1\s?)?(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/;
+  return regex.test(str);
 }
 
 // TESTS
